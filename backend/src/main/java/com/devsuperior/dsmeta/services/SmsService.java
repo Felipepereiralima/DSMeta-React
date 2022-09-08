@@ -1,6 +1,7 @@
 package com.devsuperior.dsmeta.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.devsuperior.dsmeta.entities.Sale;
@@ -12,13 +13,17 @@ import com.twilio.type.PhoneNumber;
 @Service
 public class SmsService {
 
-	private String twilioSid = "";
+	@Value("${twilio.sid}")
+	private String twilioSid;
 
-	private String twilioKey = "";
+	@Value("${twilio.key}")
+	private String twilioKey;
 
-	private String twilioPhoneFrom = "";
+	@Value("${twilio.phone.from}")
+	private String twilioPhoneFrom;
 
-	private String twilioPhoneTo = "";
+	@Value("${twilio.phone.to}")
+	private String twilioPhoneTo;
 
 	@Autowired
 	private SaleRepository saleRepository;
